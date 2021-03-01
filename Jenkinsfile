@@ -19,23 +19,24 @@ pipeline {
                         expression { param.RUN_INTEGRATION_TESTS }
                     }
                     steps {
-                        sh 'Integration'
+                        echo "uintegration"
                     }
                 }
 
-                stage("Build") {
-                    steps {
-                        script {
-                            try {
-                                sh './mvnw package -D skipTests'
-                            } catch (ex) {
-                                echo "Error while generating JAR file"
-                                throw ex
-                            }
-                        }
+            }
+        }
+
+        stage("Build") {
+            steps {
+                script {
+                    try {
+                        sh './mvnw package -D skipTests'
+                    } catch (ex) {
+                        echo "Error while generating JAR file"
+                        throw ex
                     }
                 }
             }
         }
-    }
+}
 }
