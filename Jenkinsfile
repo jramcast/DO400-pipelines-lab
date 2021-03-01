@@ -16,10 +16,10 @@ pipeline {
                 }
                 stage('Integration tests') {
                     when {
-                        expression { return param.RUN_INTEGRATION_TESTS }
+                        expression { return params.RUN_INTEGRATION_TESTS }
                     }
                     steps {
-                        echo "uintegration"
+                         echo 'hello'
                     }
                 }
 
